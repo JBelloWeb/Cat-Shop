@@ -26,6 +26,17 @@ line-height: 1.2;
 overflow-wrap: break-word;
 }
 
+header{
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    :first-child{
+        display: flex;
+        gap: 3rem;
+    }
+}
+
 main{
     width: 95vw;
     margin: auto;
