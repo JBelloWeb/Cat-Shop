@@ -27,18 +27,18 @@ overflow-wrap: break-word;
 }
 
 main{
-    max-width: 95vw;
+    width: 95vw;
     margin: auto;
     min-height: 1000px;
     height: fit-content;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
 }
 
 #filtros{
     width: 100%;
-    height: 10%;
+    height: 100px;
     background-color: blue;
 }
 
@@ -48,26 +48,31 @@ main{
     height: fit-content;
     background-color: violet;
     display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
     align-items: center;
     flex-direction: column;
 }
 
 .producto{
     width: 90%;
-    height: 200px;
     background-color: black;
+    aspect-ratio: 1 / 1;
 }
 
-@media screen and (width >= 1470px){
+@media screen and (width >= 768px){
+
+    #catalogo{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
     .producto{
-        width: 20%;
+        width: 40%;
     }
 }
 
 @media screen and (width >= 1024px){
-
 
     main{
         flex-direction: row;
@@ -81,25 +86,24 @@ main{
     #catalogo{
         width: 80%;
         height: 100%;
-        display: flex;
-        justify-content: space-evenly;
         align-items: center;
     }
 
     .producto{
-        width: 33%;
+        width: 30%;
     }
 }
 
-@media screen and (width >= 768px){
+@media screen and (width >= 1470px){
+    .producto{
+        width: 20%;
+    }
 
     #catalogo{
-        flex-wrap: wrap;
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .producto{
-        width: 40%;
+        background-color: green;
+        gap: 30px;
     }
 }
+
+
+
