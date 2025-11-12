@@ -47,8 +47,14 @@ let catalogo = d.querySelector('#catalogo');
 
 for(let producto of productos){
     let div = d.createElement('div');
-    let i = d.createElement('p');
-    i.innerHTML = `Mi id es ${producto.getId}`;
+    let i = d.createElement('a');
+    let f = d.createElement('figure')
+    let img = d.createElement('img')
+    img.src = `assets/img/${producto.imagen}`;
+    f.appendChild(img);
+    i.innerHTML = `AGREGAR`;
+    i.href = '#';
+    div.appendChild(f);
     div.appendChild(i);
     div.className = 'producto';
     catalogo.appendChild(div);
