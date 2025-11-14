@@ -81,6 +81,13 @@ for(let p of productos){
 }
 
 const CrearModal = (p) =>{
+    let modales = d.querySelectorAll('.modal');
+    
+    //Si hay un modal activo,lo removemos
+    for(let m of modales){
+        m.remove();
+    }
+
     let modal = new Producto(p.nombre, p.descripcion, p.precio, p.imagen, p.categoria);
 
     let div = d.createElement('div');
@@ -97,9 +104,13 @@ const CrearModal = (p) =>{
     close.style = 'cursor: pointer;'
     close.addEventListener('click', (e) =>{
         div.remove();
-
-        //e.target.remove(modal);
     })
+    d.addEventListener('keydown', (e) =>{
+        if(e.key == 'Escape'){
+            div.remove();
+            d.removeEventListener('keydown',(e));
+        }
+    });
 
     div.appendChild(titulo);
     div.appendChild(desc);
