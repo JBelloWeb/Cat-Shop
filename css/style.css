@@ -89,6 +89,10 @@ header{
         gap: 1rem;
     }
 
+    a{
+        cursor: pointer;
+    }
+
     figure{
         display: flex;
         align-items: center;
@@ -130,12 +134,14 @@ main{
     overflow: scroll;
     scrollbar-width: none;
     background-color: var(--main-purple);
+    
     ul{
         list-style: none;
         display: flex;
         flex-direction: column;
     }
 }
+
 
 #catalogo.disabled{
     overflow: hidden;

@@ -68,7 +68,11 @@ let header = d.querySelector('#header');
 let itemCount = d.querySelector('#itemCount')
 let totalPrice = d.querySelector('#totalPrice')
 let catalogo = d.querySelector('#catalogo');
+let btnCarrito = d.querySelector('#btnCarrito');
 
+btnCarrito.addEventListener('click', (e) =>{
+    
+})
 
 const ActualizarHeader = (bool, value) =>{
     if(bool){
