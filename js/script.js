@@ -75,6 +75,7 @@ let header = d.querySelector('#header');
 let itemCount = d.querySelector('#itemCount')
 let totalPrice = d.querySelector('#totalPrice')
 let catalogo = d.querySelector('#catalogo');
+let filtros = d.querySelectorAll('#filtros li')
 let btnCarrito = d.querySelector('#btnCarrito');
 let activo = true;
 
@@ -114,41 +115,61 @@ const ActualizarHeader = (bool, value) =>{
 ActualizarHeader(true, 0);
 ActualizarHeader(false, 0);
 
-//Instancio los productos en el documento
-for(let p of productos){
-    let f = d.createElement('figure')
-    let img = d.createElement('img')
-    img.src = `assets/img/${p.imagen}`;
-    f.appendChild(img);
-
-    let header = d.createElement('h3');
-    header.innerHTML = p.nombre;
-
-    let buttons = d.createElement('div');
-    let a = d.createElement('p');
-    a.innerHTML = `AGREGAR`;
-    a.addEventListener('click', (e) =>{
-        AgregarAlCarrito(p);
+for(let f of filtros){
+    f.addEventListener('click', (e) =>{
+        InstanciarProductos(e.target.innerHTML)
     })
-    let v = d.createElement('p');
-    v.innerHTML = `VER`;
-    //Creación de Modales
-    v.addEventListener('click', ()=>{
-        CrearModal(p);
-    }); 
-
-    buttons.appendChild(a);
-    buttons.appendChild(v);
-    buttons.className = 'botones';
-
-    let div = d.createElement('div');
-    div.appendChild(header);
-    div.appendChild(f);
-    div.appendChild(buttons);
-    div.className = `carta ${p.categoria.toLowerCase()}`;
-
-    catalogo.appendChild(div);
 }
+
+const InstanciarProductos = (category) =>{
+    
+    let galeria = catalogo.querySelectorAll('.carta');
+    
+    for(let i of galeria){
+        i.remove();
+    }
+    
+    for(let p of productos){
+        if(category.toLowerCase() === p.categoria.toLowerCase() || category.toLowerCase() === 'ver todo'){
+            let f = d.createElement('figure')
+            let img = d.createElement('img')
+            img.src = `assets/img/${p.imagen}`;
+            f.appendChild(img);
+
+            let header = d.createElement('h3');
+            header.innerHTML = p.nombre;
+
+            let buttons = d.createElement('div');
+            let a = d.createElement('p');
+            a.innerHTML = `AGREGAR`;
+            a.addEventListener('click', (e) =>{
+                AgregarAlCarrito(p);
+            })
+            let v = d.createElement('p');
+            v.innerHTML = `VER`;
+            //Creación de Modales
+            v.addEventListener('click', ()=>{
+                CrearModal(p);
+            }); 
+
+            buttons.appendChild(a);
+            buttons.appendChild(v);
+            buttons.className = 'botones';
+
+            let div = d.createElement('div');
+            div.appendChild(header);
+            div.appendChild(f);
+            div.appendChild(buttons);
+            div.className = `carta ${p.categoria.toLowerCase()}`;
+
+            catalogo.appendChild(div);
+        }
+    
+    }
+}
+
+//Instancio los productos en el documento
+InstanciarProductos('ver todo');
 
 const AgregarAlCarrito = (p) =>{
     if(carrito.totalProductos === -1) CrearCarrito();
