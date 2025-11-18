@@ -49,10 +49,17 @@ let carrito = {
 //Creo el array con los productos
 let productos = [
     new Producto('Negro', 'Serio', 1.50, 'cat.png', 'Común'),
+    new Producto('Chispas', 'Electrisante', 1.50, 'cat-chispas.png', 'Raro'),
+    new Producto('Blanco', 'Gentil', 1.50, 'cat-w.png', 'Común'),
     new Producto('Siames', 'Elegante', 10, 'cat-s.png', 'Raro'),
+    new Producto('Spike', 'Manchas', 15, 'cat-spike.png', 'Raro'),
     new Producto('Marmolado', 'Variopinto', 10, 'cat-m.png', 'Raro'),
+    new Producto('Pintor', 'Colorido', 10, 'cat-painter.png', 'Raro'),
     new Producto('Naranja', 'Impredescible', 1.50, 'cat-o.png', 'Común'),
-    new Producto('GitHub', 'Perfeccionista', 100, 'cat-git.png', 'Legendario'),
+    new Producto('Monoculo', 'sabio', 1.50, 'cat-monoculo.png', 'Raro'),
+    new Producto('Octocat', 'Perfeccionista', 100, 'cat-git.png', 'Legendario'),
+    new Producto('NyanCat', 'Mágico', 200, 'cat-nyan.png', 'Legendario'),
+    new Producto('Bandana', 'Listo para comer', 200, 'cat-bandana.png', 'Raro'),
 ];
 
 //Defino su id con un contador
@@ -93,6 +100,9 @@ for(let p of productos){
     img.src = `assets/img/${p.imagen}`;
     f.appendChild(img);
 
+    let header = d.createElement('h3');
+    header.innerHTML = p.nombre;
+
     let buttons = d.createElement('div');
     let a = d.createElement('p');
     a.innerHTML = `AGREGAR`;
@@ -111,6 +121,7 @@ for(let p of productos){
     buttons.className = 'botones';
 
     let div = d.createElement('div');
+    div.appendChild(header);
     div.appendChild(f);
     div.appendChild(buttons);
     div.className = 'carta';
@@ -152,13 +163,13 @@ const CrearCarrito = () =>{
     let carro = d.createElement('div');
     let ul = d.createElement('ul');
     carro.appendChild(ul);
-    carro.id = 'carrito';
+    carro.className = 'carrito';
     header.appendChild(carro);
     carrito.totalProductos = 0;
 }
 
 const ActualizarCarrito = () =>{
-    let carro = header.querySelector('#carrito');
+    let carro = header.querySelector('.carrito');
     let ul = carro.querySelector('ul');
     let lis = ul.querySelectorAll('li');
     for(let li of lis){
@@ -224,7 +235,7 @@ const CrearModal = (p) =>{
     close.innerHTML = 'X';
     agregar.style = 'cursor: pointer;'
     quitar.style = 'cursor: pointer;'
-    close.style = 'cursor: pointer; color: var(--main-lightblue);'
+    close.style = 'cursor: pointer;'
     close.addEventListener('click', (e) =>{
         catalogo.classList = '';
         div.remove();

@@ -122,7 +122,7 @@ main{
     outline: 3px solid var(--main-white);
 }
 
-#carrito{
+.carrito{
     border-radius: 20px;
     padding: 20px;
     position: absolute;
@@ -130,7 +130,7 @@ main{
     top: 100px;
     z-index: -2;
     width: 80vw;
-    height: 200px;
+    height: fit-content;
     overflow: scroll;
     scrollbar-width: none;
     background-color: var(--main-purple);
@@ -198,12 +198,23 @@ main{
     background-color: var(--main-blue);
     aspect-ratio: 1 / 1.5;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    position: relative;
+
+    h3{
+        transform: translateY(20px);
+    }
+
     figure{
         margin-top: 50px;
+    }
+
+    img{
+        aspect-ratio: 1/1;
+        width: 178px;
     }
 }
 
@@ -217,6 +228,12 @@ main{
     background-color: var(--main-blue);
     z-index: 2;
     border-radius: 15px;
+
+    figure{
+        transform-origin: bottom;
+        animation: idle 0.5s infinite alternate linear;
+    }
+
     &::after{
         position: absolute;
         content: '';
@@ -233,6 +250,16 @@ main{
         inset: 0;
         display: block;
         z-index: -2;
+    }
+}
+
+@keyframes idle {
+    from{
+        transform: scaleY(1);
+    }
+
+    to{
+        transform: scaleY(0.85);
     }
 }
 
@@ -255,7 +282,12 @@ main{
         height: 30px;
         width: 100%;
         margin: auto;
+        &:hover{
+            background-color: var(--main-white);
+            color: var(--main-pink);
+        }
     }
+
 }
 
 footer{
@@ -298,7 +330,7 @@ footer{
         flex-direction: row;
     }
 
-    #carrito{
+    .carrito{
 
         border-radius: 20px;
         padding: 20px;
@@ -307,7 +339,7 @@ footer{
         top: 100px;
         z-index: -2;
         width: 20vw;
-        height: 200px;
+        height: fit-content;
         overflow: scroll;
         scrollbar-width: none;
         background-color: var(--main-purple);
@@ -373,10 +405,8 @@ footer{
                 align-items: center;
                 justify-content: center;
                 border-radius: 50px;
-                background-color: var(--main-pink);
                 aspect-ratio: 1/1;
                 width: 40px;
-                border: 2px solid var(--main-white);
             }
         }
     }
