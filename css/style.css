@@ -240,13 +240,13 @@ main{
 
 @keyframes enter {
     0%{
-        transform: translateY(100px);
-        filter: opacity(0);
+        transform: translateY(100px) rotateY(-90deg);
+        filter: brightness(0);
     }
 
     100%{
-        transform: translateY(0px);
-        filter: opacity(1);
+        transform: translateY(0px) rotateY(0deg);
+        filter: brightness(1);
     }
 }
 
@@ -300,11 +300,13 @@ main{
 
 @keyframes appear {
     from{
-        transform: translateY(-100px);
+        transform: translateY(-100px) rotateX(-90deg);
+        filter: brightness(0);
     }
 
     to{
-        transform: translateY(0px);
+        transform: translateY(0px) rotateX(0deg);
+        filter: brightness(1);
     }
 }
 
