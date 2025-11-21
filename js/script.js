@@ -257,7 +257,7 @@ const CrearModal = (p) =>{
     let desc = d.createElement('p');
     desc.innerHTML = modal.descripcion;
     let pre = d.createElement('p');
-    pre.innerHTML = modal.precio;
+    pre.innerHTML = `$${modal.precio}`;
     let cate = d.createElement('p');
     cate.innerHTML = modal.categoria;
     let fig = d.createElement('figure');
