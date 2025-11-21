@@ -92,6 +92,7 @@ header{
 
     a{
         cursor: pointer;
+        
     }
 
     figure{
@@ -109,6 +110,12 @@ header{
         }
     }
 }
+
+.header-variable{
+    color: var(--main-yellow)
+}
+
+
 
 main{
     overflow: hidden;
@@ -361,8 +368,20 @@ main{
 }
 
 footer{
+    background-color: var(--main-black);
     min-height: 10vh;
     margin-top: 100px;
+    ul{
+        list-style: none;
+        padding-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+    }
+    span{
+        color: var(--main-pink);
+    }
 }
 
 @media screen and (width >= 768px){

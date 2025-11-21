@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Cat Shop</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
@@ -13,8 +13,8 @@
 <body>
     <header id="header">
         <div>
-            <p>Items agregados: <span id="itemCount"></span></p>
-            <p>Total a pagar: <span id="totalPrice"></span></p>
+            <p><span class="header-variable">Items agregados:</span> <span id="itemCount"></span></p>
+            <p><span class="header-variable">Total a pagar:</span> <span id="totalPrice"></span></p>
         </div>
 
         <a id="btnCarrito"> 
@@ -42,7 +42,12 @@
     </main>
 
     <footer>
-
+        <ul>
+            <li><span>Alumno:</span> Juan Ignacio Peralta</li>
+            <li><span>Profesor:</span> Carlos Ferrer</li>
+            <li><span>Comisión:</span> DWM2AP</li>
+            <li><span>Año:</span> 2025</li>
+        </ul>
     </footer>
 
 <script src="js/script.js"></script>
